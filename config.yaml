@@ -1,0 +1,19 @@
+baseURL: 'http://example.org/'
+languageCode: en-us
+title: c0nrad's blog
+theme: hyde
+
+Menus:
+  main:
+    - Name: About
+      URL: "https://c0nrad.io"
+    - Name: Github
+      URL: 'https://github.com/c0nrad/'
+    - Name: Twitter
+      URL: 'https://twitter.com/xc0nradx'
+
+params:
+  description: "Learning about physics"
+
+googleAnalytics: "UA-165926825-2"
+disqusShortname: "https-blog-c0nrad-io"
