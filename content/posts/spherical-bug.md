@@ -1,7 +1,7 @@
 ---
 title: "Spherical Bug"
 date: 2020-09-09T09:16:42-04:00
-draft: true
+draft: false
 ---
 
 Discussion of one of my longest living software bugs.
