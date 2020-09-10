@@ -1,12 +1,15 @@
-baseURL: 'http://example.org/'
+baseURL: 'https://blog.c0nrad.io/'
 languageCode: en-us
 title: c0nrad's blog
-theme: hyde
+theme: anubis
+paginate: 10
+googleAnalytics: "UA-165926825-2"
+
 
 Menus:
   main:
-    - Name: About
-      URL: "https://c0nrad.io"
+    - name: About
+      url: "https://c0nrad.io"
     - Name: Github
       URL: 'https://github.com/c0nrad/'
     - Name: Twitter
@@ -14,6 +17,15 @@ Menus:
 
 params:
   description: "Learning about physics"
+  author: "Stuart Larsen"
+  images:
+    - static/walljump.gif
+  customCSS:
+    - css/my.css
 
-googleAnalytics: "UA-165926825-2"
-disqusShortname: "https-blog-c0nrad-io"
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+  

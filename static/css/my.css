@@ -1,0 +1,14 @@
+
+table {
+    width:100%;
+}
+
+.full-width {
+    width: 95vw;
+    position: relative;
+    left: 45%;
+    right: 45%;
+    margin-left: -45vw;
+    margin-right: -50vw;
+}
+  

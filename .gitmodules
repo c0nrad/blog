@@ -1,3 +1,7 @@
-[submodule "themes/hyde"]
-	path = themes/hyde
-	url = https://github.com/spf13/hyde
+[submodule "public"]
+	path = public
+	url = git@github.com:c0nrad/c0nrad.github.io.git
+	branch = master
+[submodule "themes/anubis"]
+	path = themes/anubis
+	url = https://github.com/mitrichius/hugo-theme-anubis.git
