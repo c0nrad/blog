@@ -3,7 +3,7 @@ title: "Quantum Infinite Well"
 date: 2020-05-22T12:30:26-04:00
 draft: false
 description: "Calculating the stationary states of an electron in a quantum infinite well"
-tags: ["quantum mechanics","simulation"]
+categories: ["quantum mechanics", "simulation"]
 ---
 
 Calculating the stationary states of an electron in a quantum infinite well.
@@ -14,12 +14,11 @@ Calculating the stationary states of an electron in a quantum infinite well.
 <br>
 (Or visit URL: <a href="https://qsimp.github.io/qsimp/examples/infinite_well/">https://qsimp.github.io/qsimp/examples/infinite_well/</a>)
 
+## Particle in a well
 
-## Particle in a well 
+The above charts are calculations for a hypothetical electron stuck in a well.
 
-The above charts are calculations for a hypothetical electron stuck in a well. 
-
-It's a 1-dimensional well, and sides of the well are infinite in height. 
+It's a 1-dimensional well, and sides of the well are infinite in height.
 
 This model is kind of similar to a standard bouncy ball being placed into a hole, and we watch it slide back and fourth, unable to ever escape the hole. (And the hole has no friction).
 
@@ -37,7 +36,7 @@ In classical mechanics, we can calculate the position of the ball by using Newto
 
 Quantum mechanics has a similar function called the Schrödinger Equation. Using it we can learn about the particle as we go forward/backwards in time.
 
-$$ i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2m} \frac{\partial^2 \Psi}{\partial x^2} + V \Psi $$ 
+$$ i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2m} \frac{\partial^2 \Psi}{\partial x^2} + V \Psi $$
 
 <ul>
     <li> \( \Psi \) is the wavefunction </li>
@@ -47,19 +46,23 @@ $$ i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2m} \frac{\partia
     <li> \( V \) is the potential function  </li>
 </ul>
 
-### Potential Function 
+### Potential Function
 
-To "solve" the Schrödinger for a particular system, you need the Potential Energy function. The easiest Potential function to get started with is the Infinite Well. 
+To "solve" the Schrödinger for a particular system, you need the Potential Energy function. The easiest Potential function to get started with is the Infinite Well.
 
-$$ V(x) = \begin{cases} 0, & 0 <= x <= a \\\ 
-\infty, & \text{otherwise} \end{cases}  $$
+$$
+V(x) = \begin{cases} 0, & 0 <= x <= a \\\
+\infty, & \text{otherwise} \end{cases}
+$$
 
 It just says that the particle must stay in the well. There's no escaping the well.
 
-Then, with that potential function, we can plug it into the Schrödinger and determine a function that "fits". We eventually get: 
+Then, with that potential function, we can plug it into the Schrödinger and determine a function that "fits". We eventually get:
 
-$$ \Psi_n (x, t) = \sqrt{ \frac{2}{a}} \sin{(\frac{n \pi}{a} x )} e^{-i (n^2 \pi^2 \hbar) / (2
-m a^2 ) t} $$
+$$
+\Psi_n (x, t) = \sqrt{ \frac{2}{a}} \sin{(\frac{n \pi}{a} x )} e^{-i (n^2 \pi^2 \hbar) / (2
+m a^2 ) t}
+$$
 
 <ul>
     <li> \( \Psi \) is the wavefunction </li>
@@ -73,29 +76,29 @@ m a^2 ) t} $$
 
 #### Stationary States
 
-Each one of the \\( n \\) states is an energy level that the particle can be in. But oddly in the quantum mechanics world, the particle will usually occupy a mix of different energy levels at the same time! 
+Each one of the \\( n \\) states is an energy level that the particle can be in. But oddly in the quantum mechanics world, the particle will usually occupy a mix of different energy levels at the same time!
 
-But, when we try to figure out what energy state the particle is in, it will collapse to only one of the states. 
+But, when we try to figure out what energy state the particle is in, it will collapse to only one of the states.
 
 The probability of finding a particle in a particular state is \( |c_n|^2 \):
 
-$$ \Psi (x, t) = \sum_{n=1}^{\infty} c_n \sqrt{ \frac{2}{a}} \sin{(\frac{n \pi}{a} x )} e^{-i (n^2 \pi^2 \hbar) / (2 m a^2 ) t} $$
+$$ \Psi (x, t) = \sum\_{n=1}^{\infty} c_n \sqrt{ \frac{2}{a}} \sin{(\frac{n \pi}{a} x )} e^{-i (n^2 \pi^2 \hbar) / (2 m a^2 ) t} $$
 
-Each of the states has a particular energy (as shown by the table above). 
+Each of the states has a particular energy (as shown by the table above).
 
-The coefficients are determined by "initial wave function" such as \\( \Psi (x, 0) = A x (a-x) \\).  Using some Fourier series magic you can fit the equation by properly setting the \\( c_n \\)'s.
+The coefficients are determined by "initial wave function" such as \\( \Psi (x, 0) = A x (a-x) \\). Using some Fourier series magic you can fit the equation by properly setting the \\( c_n \\)'s.
 
-## Imaginary Component 
+## Imaginary Component
 
-In the above chart there's two lines for every state, one for both the real and imaginary components. 
+In the above chart there's two lines for every state, one for both the real and imaginary components.
 
-The imaginary component comes from the trailing \\( e^i \\) in the solution. The book I'm reading calls this the "time independent wiggle room". 
+The imaginary component comes from the trailing \\( e^i \\) in the solution. The book I'm reading calls this the "time independent wiggle room".
 
 What's interesting though is that the time component doesn't actually change the expectation values for the wave. (If we're being 100% honest, I'm not actually sure what the time component does. It's what I'm going to look into next. I have a feeling it'll play a bigger role when we look at multi-particle systems that interfere with each other).
 
 ## Expectation Values
 
-Even more fun, t's not possible to know everything about the particle in the well. We believe this to be a limitation of the universe, not our understanding of the universe. 
+Even more fun, t's not possible to know everything about the particle in the well. We believe this to be a limitation of the universe, not our understanding of the universe.
 
 But we can still calculate "expectation" values for different properties. These properties are the result if you were to measure a bunch of particles in similar configurations and average them out.
 
@@ -103,13 +106,13 @@ But we can still calculate "expectation" values for different properties. These 
 
 ### Position
 
-$$ \langle x \rangle = \int_{-\infty}^{\infty} \Psi^{*} [x] \Psi dx $$
+$$ \langle x \rangle = \int\_{-\infty}^{\infty} \Psi^{\*} [x] \Psi dx $$
 
-### Momentum 
+### Momentum
 
-$$ \langle p \rangle = \int_{-\infty}^{\infty} \Psi^{*} [-i \hbar \frac{\partial}{\partial x}] \Psi dx $$
+$$ \langle p \rangle = \int\_{-\infty}^{\infty} \Psi^{\*} [-i \hbar \frac{\partial}{\partial x}] \Psi dx $$
 
-### Uncertainty 
+### Uncertainty
 
 We can also verify that all states adhere to the uncertainty principle:
 
@@ -119,12 +122,12 @@ Where:
 
 $$ \sigma_x = \langle x^2 \rangle - \langle x \rangle^2 $$
 
-$$ \langle x^2 \rangle = \int_{-\infty}^{\infty} \Psi^{*} [x]^2 \Psi dx $$
+$$ \langle x^2 \rangle = \int\_{-\infty}^{\infty} \Psi^{\*} [x]^2 \Psi dx $$
 
-Thankfully from the above table we can see that our calculated uncertainty is  \\( \geq  \frac{\hbar}{2} \\) for all states. 
+Thankfully from the above table we can see that our calculated uncertainty is \\( \geq \frac{\hbar}{2} \\) for all states.
 
 ## Up Next
 
-Next up will be the quantum harmonic oscillator. I also want to learn more about how the equation evolves with time. 
+Next up will be the quantum harmonic oscillator. I also want to learn more about how the equation evolves with time.
 
-If anything is confusing, please let me know! c0nrad@c0nrad.io. 
+If anything is confusing, please let me know! c0nrad@c0nrad.io.

@@ -3,16 +3,16 @@ title: "GiNaC on Macos"
 date: 2020-05-27T18:43:40-04:00
 draft: false
 description: "A quick guide on getting started with GiNaC on macos."
-tags: ["quantum mechanics","simulation", "ginacs"]
+categories: ["quantum mechanics", "simulation", "ginacs"]
 ---
 
 A quick guide on getting started with GiNaC on macos.
 
 <!--more-->
 
-## Background 
+## Background
 
-I decided to start my next project which will be calculating the "orbitals" of electrons in Hydrogen. 
+I decided to start my next project which will be calculating the "orbitals" of electrons in Hydrogen.
 
 I was going to write it in Go, but calculating the Rodrigues formula and the associated Legendre Functions require performing an arbitrary polynomial derivative, and I couldn't find a good symbolic differentiator in GoLang. (And I'd like to see the results, not use a numerical differentiator).
 
@@ -26,9 +26,9 @@ On Macos it's extremely easy! First you need to install [CLN](https://www.ginac.
 brew install cln ginac
 ```
 
-It's possible you'll need to install xcode if you haven't already. This is so gcc(clang) is setup. To install it you just run `xcode-select --install`. 
+It's possible you'll need to install xcode if you haven't already. This is so gcc(clang) is setup. To install it you just run `xcode-select --install`.
 
-## Setting up VSCode 
+## Setting up VSCode
 
 Then I setup my IDE (I use Visual Code):
 
@@ -36,15 +36,15 @@ Then I setup my IDE (I use Visual Code):
 
 ![c-standard](/c-standard.png)
 
-2. Set the include paths 
+2. Set the include paths
 
 ![c-include-path](/c-include-path.png)
 
-To find the exact version for your include paths, open up terminal, and `cd` into the package directories (/usr/local/Cellar) to find the correct version numbers. 
+To find the exact version for your include paths, open up terminal, and `cd` into the package directories (/usr/local/Cellar) to find the correct version numbers.
 
 After this intelitype should work.
 
-## Build the example 
+## Build the example
 
 I had to modify the default example a little bit. It was complaining about not knowing which version of `pow` to use. So I just removed the namespaces (which I wanted to do anyways as I'm getting back into C++ and remember what belongs to what package)
 
@@ -86,10 +86,10 @@ And then to execute your hard work:
 I keep everything in a Makefile, so really I just type "make":
 
 ```Makefile
-run: build 
+run: build
 	./hermitePoly
 
-build: 
+build:
 	g++ -std=gnu++17 hermitePoly.cpp -o hermitePoly -L/usr/local/Cellar/ginac/1.7.9/lib -lginac -L/usr/local/Cellar/cln/1.3.6/lib -lcln
 ```
 

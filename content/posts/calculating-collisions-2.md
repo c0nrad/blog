@@ -3,18 +3,18 @@ title: "Calculating Collisions Pt. 2"
 date: 2020-05-18T12:30:26-04:00
 draft: false
 description: "Calculating the resulting velocities from an elastic collision"
-tags: ["newtonian","simulation"]
+categories: ["newtonian", "simulation", "physics"]
 ---
 
-Programming the equation we derived in the [last post](/posts/calculating-collisions/). 
+Programming the equation we derived in the [last post](/posts/calculating-collisions/).
 
 <!--more-->
 
-## Background 
+## Background
 
 So in the last post we were able to generate the following equation. It can be used to determine the resulting velocities of a collision of two spheres:
 
-$$ v_{1f}^2  + v_{1f} \frac{(- 2 p_{i} m_{1} m_{2})}{m_{2} m_{1}^2 + m^2_2 m_{1}}  + \frac{p_{i}^2 m_{2} - 2 m^2_2 K_{i}}{m_{2} m_{1}^2 + m^2_2 m_{1}} =  0  $$
+$$ v*{1f}^2 + v*{1f} \frac{(- 2 p*{i} m*{1} m*{2})}{m*{2} m*{1}^2 + m^2_2 m*{1}} + \frac{p*{i}^2 m*{2} - 2 m^2*2 K*{i}}{m*{2} m*{1}^2 + m^2*2 m*{1}} = 0 $$
 
 ## Results
 
@@ -24,22 +24,21 @@ This morning I codified the equations into `simp`, and they turned out pretty ni
 <video controls src="/sphere_collisions.mp4" style="width: 75%;" autoplay loop ></video>
 </div>
 
-They line up to the math we worked out in the last blog post. 
+They line up to the math we worked out in the last blog post.
 
 ### Vector Fun
 
-In the last post I assumed that the vector math would just work out. Which ended up mostly being true. 
+In the last post I assumed that the vector math would just work out. Which ended up mostly being true.
 
 But, it took me some time to figure out what I was supposed to do with the vectors when multiplying them together.
 
 For Kinetic Energy, it almost seemed to make sense to take the dot product of the velocity vectors. Do we really want the "kinetic energy" for all the individual components? It feels weird to directly multiply two velocity vectors together.
 
-$$ K_{i} =  \frac{1}{2} m v^2  $$
+$$ K\_{i} = \frac{1}{2} m v^2 $$
 
 $$
 \begin{bmatrix} v_x \\\\ v_y \\\\ v_z \\\\ \end{bmatrix}^2 = v_x^2 + v_y^2 + v_z^2
 $$
-
 
 But this didn't work. When I treat kinetic energy like a scalar instead of a vector, I had to add/subtract scalars from a vector (during the quadratic equation step) which was also weird (and the results I got were less than ideal...):
 
@@ -57,7 +56,7 @@ And it seems to work. /shrug
 
 ## Next up
 
-Turns out there's another big problem! 
+Turns out there's another big problem!
 
 The equations don't take into account how the spheres are collide!
 

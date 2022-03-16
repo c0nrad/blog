@@ -2,7 +2,7 @@
 title: "Vector Calculus Part 2: Visualization"
 date: 2020-07-20T21:04:09-04:00
 draft: false
-tags: ["programming", "numerical", "vector", "EM"]
+categories: ["programming", "numerical", "vector", "EM", "physics"]
 ---
 
 Playing with three.js to do some vector visualizations.
@@ -15,7 +15,7 @@ So I started building out a toolkit for visualizing the vector library.
 
 Eventually I'd like to create a little playpen where you can add different types of electrostatic objects (points, lines, surfaces, volumes), and you can see their effect on the E vector field.
 
-Until then, I'm trying to figure out how to best display stuff! 
+Until then, I'm trying to figure out how to best display stuff!
 
 I'm happy with the progress, but not particularly happy with the results.
 
@@ -49,6 +49,7 @@ v.drawVector(b, a, a_color)
 ```
 
 ## Dot Product
+
 <div style="text-align: center" >
 <canvas id="canvas_dotproduct" width="600" height="400"></canvas>
 </div>
@@ -62,6 +63,7 @@ The length of the two vectors multiplied, times the cos of the angle between the
 It's important to note that the dot product results a scalar, not a vector.
 
 ## Cross Product
+
 <div style="text-align: center" >
     <canvas id="canvas_crossproduct" width="600" height="400"></canvas>
 </div>
@@ -81,7 +83,7 @@ $$ \bm{a} \times \bm{b} = | \bm{a}| |\bm{b}| sin(\theta) \hat{\bm{n}} $$
 
 I think you can say that the magnitude of the vector is equivalent to the area of the parallelogram of two vectors? Which makes sense, because you can determine the area of a triangle using a similar formula:
 
-$$ Area_{triangle} = \frac{1}{2} * a * b * sin(C) $$
+$$ Area\_{triangle} = \frac{1}{2} _ a _ b \* sin(C) $$
 
 ## Vector Field
 
@@ -89,7 +91,7 @@ $$ Area_{triangle} = \frac{1}{2} * a * b * sin(C) $$
 <canvas id="canvas_vf1" width="600" height="400"></canvas>
 </div>
 
-My first attempt at plotting a vector field, I _really_ don't like this one. It's super hard to glean what it's trying to say. 
+My first attempt at plotting a vector field, I _really_ don't like this one. It's super hard to glean what it's trying to say.
 
 ```javascript
 let vf1 = new VectorField(new Func("x* y"), new Func("x"), new Func("0"))

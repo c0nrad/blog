@@ -3,7 +3,7 @@ title: "Reflections on 6 months solo SaaS startup"
 date: 2020-06-16T07:59:02-04:00
 draft: false
 description: "Reflections on 6 months solo SaaS startup"
-tags: ["startup"]
+categories: ["startup", "personal"]
 ---
 
 It's crazy to think my startup is already over 6 months old. This post is some informal reflections on that period.
@@ -24,7 +24,7 @@ There's nothing wrong with that, it's just important to remember.
 
 The fact that no one cares also has positive aspects! I was worried about my two hours of planned downtime when I was doing a large migration. Literally no one cared. I think my startup could have been down for a few days, and no one would of cared that much. Unfortunately or fortunately I focused a lot on reliability (which was kind of wasted effort now that I realize it).
 
-## Careful with free trials 
+## Careful with free trials
 
 I thought it would be cool if I had a free sandbox plan. Let people kick the tires. When they see the amazing value they'll upgrade!
 
@@ -40,7 +40,7 @@ There's way less usage, but now people pay for the service. And I'm not fronting
 
 ## SEO / Pipeline / Ads
 
-It sounds so obvious now, but wasn't fully fully internalized when I started. 
+It sounds so obvious now, but wasn't fully fully internalized when I started.
 
 People aren't just going to "stumble" onto your product.
 
@@ -52,9 +52,9 @@ SEO / Marketing are the name of the game. (not an endorsement), but getting setu
 
 ## People like "open source"... a lot
 
-I built a similar open source product about 5-6 years ago. It's crazy how fast people will refer an open source product compared to a paid product. 
+I built a similar open source product about 5-6 years ago. It's crazy how fast people will refer an open source product compared to a paid product.
 
-It's a huge marketing advantage I never really considered. The product today is SIGNIFICANTLY better than the 5-6 year old product, yet people still share links to my old defunct product. 
+It's a huge marketing advantage I never really considered. The product today is SIGNIFICANTLY better than the 5-6 year old product, yet people still share links to my old defunct product.
 
 "open source" seems to trump reliability. I'm probably the same way, so I can't complain too much. Just interesting to watch it happen.
 
@@ -62,9 +62,9 @@ I was very tempted to shift to "open source" and then have a paid plan. But, nev
 
 ## On the plus, working for yourself is... amazing
 
-I loved all my previous jobs. For better or worse, work is usually the center of my life. 
+I loved all my previous jobs. For better or worse, work is usually the center of my life.
 
-But, there's something about waking up in the morning, making yourself some coffee, and pouring your heart into something you own. For awhile I would shoot out of bed at 6am (without an alarm) because I was so excited to get to work. I'd work for 12 hours, and then do it all again, and I was excited about it. 
+But, there's something about waking up in the morning, making yourself some coffee, and pouring your heart into something you own. For awhile I would shoot out of bed at 6am (without an alarm) because I was so excited to get to work. I'd work for 12 hours, and then do it all again, and I was excited about it.
 
 And it's so nice knowing where everything is. At some point I had to do a decent sized migration across 125 files. Knowing how everything works and where it is makes every project nice and fun. No hidden side effects.
 
@@ -76,7 +76,7 @@ I did two large migrations on Csper. One was a re-write of "projects" and "organ
 
 After the release went smoothly, it was a hurah! But, it's not like I would instantly get any new customers.
 
-After the migration is done, I'm still just staring at my computer, nothing has changed. 
+After the migration is done, I'm still just staring at my computer, nothing has changed.
 
 Being generous, let's say the different of consolidated billings increased conversions by 5%, I'd have to wait awhile to see that impact. I don't think I even got a new customer that week.
 
@@ -84,9 +84,9 @@ It can be dis-heartening when you work super hard, but then nothing happens. It 
 
 ## It's a bit of a rollercoaster
 
-It seems like when things go bad, a lot of things go bad at once. A customer will leave, the firefox extension store will remove my addon, some feature will be acting up, and your competitors just signed a big deal. 
+It seems like when things go bad, a lot of things go bad at once. A customer will leave, the firefox extension store will remove my addon, some feature will be acting up, and your competitors just signed a big deal.
 
-That emotional buffer is important. I should have remembered to leave some room in my emotional tank to take hits. Wearing thin and then taking a couple of hits is not fun. 
+That emotional buffer is important. I should have remembered to leave some room in my emotional tank to take hits. Wearing thin and then taking a couple of hits is not fun.
 
 In the movies/books/interwebs every startup is successful. When you see people working hard, it's like "no duh, the payoff and reward will be huge!" But in real life you have to face that most likely it will fail. When do you cut your losses? When you take a number of hits at once, those questions go to the front of your mind.
 
@@ -110,18 +110,18 @@ If an article attracts two new customers, and a weird edge case defers one custo
 
 Some things that I already knew, and thankful that I did:
 
-* Staging/prod. Staging saved my butt a number of times. And made things way less stressful when doing big changes. Worth every penny.
-* k8s on gke was pretty nice. it took a day or two to get my infra setup, and then I never really thought about it. it just scales here and there.
-* Single command deploys, and lots of makefiles. Any command that could be useful later I store in a makefile. i never want to think about things.
+- Staging/prod. Staging saved my butt a number of times. And made things way less stressful when doing big changes. Worth every penny.
+- k8s on gke was pretty nice. it took a day or two to get my infra setup, and then I never really thought about it. it just scales here and there.
+- Single command deploys, and lots of makefiles. Any command that could be useful later I store in a makefile. i never want to think about things.
 
 Things that were surprisingly frustrating:
 
-* Browser extension review processes!
-    * Chrome takes weeks and weeks to review extensions
-    * Firefox is super picky about making sure that they can compile your code and it exactly matches what's in the app store
-* SaaS trails/charges. You rely on a number of services for your startup, and they start to add up. Some companies are also very sneaky about not emailing you before they charge your credit card. There was one company that charged me for 6 months without sending a single email.
-    * I should of been reviewing my credit card statements, but when you're already working long days, it's near the bottom of the chopping block. At the end of the day, writing another article for SEO is more important than checking a hypothetical
-* Kind of weird point, but I tried advertising on linkedin/google/facebook/twitter. I left with a very negative view of all the platforms and try very hard not to read from them anymore. Everyone knows that those platforms are about advertising, but it wasn't until I was trying to shove my agenda down other peoples throats did I realize how disgusting it was. Now I see all the other businesses doing what I was doing, pushing their own agenda. I want no part of anyone else's agenda. I was probably doing ads wrong, but I saw no drop in signups after I stopped them. I'm going to fully focus on SEO instead. I feel good about that, when people have a problem, they'll google for it, and my company will be there.
+- Browser extension review processes!
+  - Chrome takes weeks and weeks to review extensions
+  - Firefox is super picky about making sure that they can compile your code and it exactly matches what's in the app store
+- SaaS trails/charges. You rely on a number of services for your startup, and they start to add up. Some companies are also very sneaky about not emailing you before they charge your credit card. There was one company that charged me for 6 months without sending a single email.
+  - I should of been reviewing my credit card statements, but when you're already working long days, it's near the bottom of the chopping block. At the end of the day, writing another article for SEO is more important than checking a hypothetical
+- Kind of weird point, but I tried advertising on linkedin/google/facebook/twitter. I left with a very negative view of all the platforms and try very hard not to read from them anymore. Everyone knows that those platforms are about advertising, but it wasn't until I was trying to shove my agenda down other peoples throats did I realize how disgusting it was. Now I see all the other businesses doing what I was doing, pushing their own agenda. I want no part of anyone else's agenda. I was probably doing ads wrong, but I saw no drop in signups after I stopped them. I'm going to fully focus on SEO instead. I feel good about that, when people have a problem, they'll google for it, and my company will be there.
 
 ## Conclusion
 

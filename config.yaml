@@ -1,31 +1,88 @@
-baseURL: 'https://blog.c0nrad.io/'
+baseURL: "https://blog.c0nrad.io/"
 languageCode: en-us
-title: c0nrad's blog
-theme: anubis
+title: c0nrad's c0rner
+theme: Hugo-Octopress
 paginate: 10
-googleAnalytics: "UA-165926825-2"
 
-
-Menus:
+menu:
   main:
-    - name: About
+    - name: Home
+      url: "/"
+      weight: -11
+    - name: Website
       url: "https://c0nrad.io"
+      weight: -10
     - Name: Github
-      URL: 'https://github.com/c0nrad/'
+      URL: "https://github.com/c0nrad/"
+      weight: -9
     - Name: Twitter
-      URL: 'https://twitter.com/xc0nradx'
+      URL: "https://twitter.com/xc0nradx"
+      weight: -8
+  sidebar:
+    - Name: physics
+      URL: /categories/physics
+      weight: 10
+    - Name: electronics
+      URL: /categories/electronics
+      weight: 20
+    - Name: quantum computing
+      URL: /categories/quantum-computation
+      weight: 10
+    - Name: personal
+      URL: /categories/personal
+      weight: 30
 
 params:
+  subtitle: "Learning and learning"
   description: "Learning about physics"
   author: "Stuart Larsen"
   images:
     - static/walljump.gif
   customCSS:
     - css/my.css
+  compactIndex: true
+
+  sidebarRecentLimit: 0
+  sidebarHeader: Who am I?
+  sidebarText: |-
+    <img src="/me.png" style="width: 100%"> 
+    I am Stuart. In a previous life I was a programmer, electrical engineer, and a security engineer. Now I spend my free time tinkering with physics.
+    </br></br>
+    My goal is to understand why the universe exists. I have a lot of learning to do.
+    <br/><br/>
+    I write about physics, life, and learning.
+    </br>
+
+  # Enable links in the side bar. They are under menu.sidebar.
+  sidebarMenuEnabled: true
+  # Name of the links section.
+  sidebarMenuHeader: Collections
+
+  generateTaxonomyList: true
+
+  twitter: "https://twitter.com/xc0nradx/"
+  github: "https://github.com/c0nrad/"
+  linkedin: "https://www.linkedin.com/in/c0nrad"
+  rss: true
+
+  defaultKeywords:
+    - Stuart Larsen
+    - c0nrad
+    - physics
+
+  tableOfContents: true
+
+  twitterCardEnabled: true
+  twitterCardDomain: blog.c0nrad.io
+  twitterCardAuthor: CryptoGangsta
+
+  analytics:
+    piwik:
+      URL: c0nrad.matomo.cloud
+      ID: 1
 
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
     renderer:
       unsafe: true
-  

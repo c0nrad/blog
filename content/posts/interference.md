@@ -2,7 +2,7 @@
 title: "Interference"
 date: 2020-08-18T18:53:54-04:00
 draft: false
-tags: ["simulation"]
+categories: ["simulation", "physics"]
 ---
 
 Double Slit Interference Pattern demo.
@@ -42,21 +42,22 @@ Source:
 [Raw Link](https://blog.c0nrad.io/interference)
 
 Some fun things to note:
-* The chart color changes based on wavelength. 
-* It kind of blows my mind that the interference pattern appears in the [mm] scale, but the wavelengths are in the nm scale.
+
+- The chart color changes based on wavelength.
+- It kind of blows my mind that the interference pattern appears in the [mm] scale, but the wavelengths are in the nm scale.
 
 ## Things that went well
 
-* Javascript's precision wasn't high enough at first, specially since the wall is 4m away and the wavelength is in the nanometer scale. So the nanometer components were being truncated. I ended up using some library called decimal.js that worked well.
+- Javascript's precision wasn't high enough at first, specially since the wall is 4m away and the wavelength is in the nanometer scale. So the nanometer components were being truncated. I ended up using some library called decimal.js that worked well.
 
 ## Open questions
 
-* How does the intensity drop off as the fringes get further away from the middle? It looks like a \\( sinc \\) function, but not sure.
+- How does the intensity drop off as the fringes get further away from the middle? It looks like a \\( sinc \\) function, but not sure.
 
 ## Future
 
 Probably nothing. It was a fun little exercise. Although it ended up taking the better part of a day to complete. (I was playing with Preact for a bit, but I love angular's two-way data-binding. So I switched back.)
 
-I've also been working on a computer algebra system (called [Meth.js](https://github.com/c0nrad)). I'm hoping it soon gets to the point where I can just feed it a couple of equations and some input with units, and it'll figure out any other value I'd be interested in calculating. 
+I've also been working on a computer algebra system (called [Meth.js](https://github.com/c0nrad)). I'm hoping it soon gets to the point where I can just feed it a couple of equations and some input with units, and it'll figure out any other value I'd be interested in calculating.
 
 Toodles.

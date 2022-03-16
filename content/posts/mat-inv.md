@@ -2,7 +2,7 @@
 title: "Matrix Inversion"
 date: 2020-08-07T18:37:01-04:00
 draft: false
-tags: ["programming", "numerical", "matrix"]
+categories: ["programming", "numerical", "matrix"]
 ---
 
 Some fun inverting matrixes.
@@ -13,12 +13,14 @@ Some fun inverting matrixes.
 
 I'm currently reading through Griffiths' Particle Physics book, and problem 3.7 ask you to find the inverse of this matrix:
 
-$$ \Lambda = \begin{vmatrix}
-\gamma & -\gamma\beta & 0 & 0 \\\ 
--\gamma\beta & \gamma & 0 & 0 \\\ 
-0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{vmatrix} $$ 
+$$
+\Lambda = \begin{vmatrix}
+\gamma & -\gamma\beta & 0 & 0 \\\
+-\gamma\beta & \gamma & 0 & 0 \\\
+0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{vmatrix}
+$$
 
-It's been awhile since I took Linear Algebra, I wasn't sure if it was even possible to easily invert a matrix. Something about \\( det(A) \\)?. 
+It's been awhile since I took Linear Algebra, I wasn't sure if it was even possible to easily invert a matrix. Something about \\( det(A) \\)?.
 
 I figured it'd be a fun problem to solve pragmatically. So I jumped to wiki and found this boss equation:
 
@@ -29,14 +31,14 @@ I'm not even going to try and replicated that in LaTeX. But it looks cool.
 
 Off to coding!
 
-## Solution 
+## Solution
 
 Well the code is done:
 https://github.com/c0nrad/matInv/blob/master/matrix.ts
 
-I ended up not using Cayley-Hamilton equation. 
+I ended up not using Cayley-Hamilton equation.
 
-Turns out instead you can take the "adjugate" of the matrix and multiply it by the inverse of the determinate. This is related to [Cramer's Rule](https://en.wikipedia.org/wiki/Cramer%27s_rule#Finding_inverse_matrix). (No idea what that is.) 
+Turns out instead you can take the "adjugate" of the matrix and multiply it by the inverse of the determinate. This is related to [Cramer's Rule](https://en.wikipedia.org/wiki/Cramer%27s_rule#Finding_inverse_matrix). (No idea what that is.)
 
 The adjugate is the co-factor of the matrix (again, don't really know what that is), but you can calculate it by taking a bunch of little determinates of the matrix. The determinate is sort of the area "scaling" factor of a matrix. Highly recommend the [3Blue1Brown](https://www.youtube.com/watch?v=Ip3X9LOh2dk&vl=en) video on the subject.
 
@@ -66,10 +68,12 @@ $$ t = \gamma (t\prime + \frac{v}{c^2} x\prime) $$
 
 So the actual matrix of inversion is:
 
-$$ \Lambda^{-1} = \begin{vmatrix}
-\gamma & \gamma\beta & 0 & 0 \\\ 
-\gamma\beta & \gamma & 0 & 0 \\\ 
-0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{vmatrix} $$ 
+$$
+\Lambda^{-1} = \begin{vmatrix}
+\gamma & \gamma\beta & 0 & 0 \\\
+\gamma\beta & \gamma & 0 & 0 \\\
+0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{vmatrix}
+$$
 
 And if you multiple them together, you get \\( \bm{I} \\)
 

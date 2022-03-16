@@ -2,16 +2,16 @@
 title: "Numerical Differentiation"
 date: 2020-07-10T20:01:46-04:00
 draft: false
-tags: ["physics", "computational physics"]
+categories: ["physics", "computational physics"]
 ---
 
 Some exploration into numerical differentiation.
 
 <!--more-->
 
-## Introduction 
+## Introduction
 
-I just picked up a new book: [Basic Concepts in Computational Physics](https://www.amazon.com/Concepts-Computational-Physics-Benjamin-Stickler/dp/3319272632/). I've been planning on building simulators for EM and Relativity. But after doing some research on how other people built them, I realized I should probably learn some of the basics of computational physics first. Other people seem to use FDTD (Finite-Difference Time-Domain) for simulations, and I have no idea what that is. 
+I just picked up a new book: [Basic Concepts in Computational Physics](https://www.amazon.com/Concepts-Computational-Physics-Benjamin-Stickler/dp/3319272632/). I've been planning on building simulators for EM and Relativity. But after doing some research on how other people built them, I realized I should probably learn some of the basics of computational physics first. Other people seem to use FDTD (Finite-Difference Time-Domain) for simulations, and I have no idea what that is.
 
 To the <s>drawing</s> learning board!
 
@@ -29,48 +29,50 @@ But not all functions are that easy to differentiate. And sometimes you're lazy 
 
 In high school calculus we learned that:
 
-$$ f^\prime(x) = \lim_{h\to\infty} \frac{f(x+h) - f(x)}{h} $$
+$$ f^\prime(x) = \lim\_{h\to\infty} \frac{f(x+h) - f(x)}{h} $$
 
 And the idea behind numerical differentiation isn't that different. But instead of taking the limit, we just make h very small. When h is very small, we just assume the line is linear and use the equation for finding the slope of a linear line.
 
-But, we need to make a choice. Let's say we want to find the slope at \\( x_i \\) should we use \\( x_{i-1}, x_{i} \\) as the two points? Or \\( x_{i}, x_{i+1} \\) or maybe \\( x_{i-1}, x_{i+1} \\)?
+But, we need to make a choice. Let's say we want to find the slope at \\( x*i \\) should we use \\( x*{i-1}, x*{i} \\) as the two points? Or \\( x*{i}, x*{i+1} \\) or maybe \\( x*{i-1}, x\_{i+1} \\)?
 
-
-$$ f^\prime_{forward}(x_i) = \frac{ f(x_{i+1}) - f(x_i) }{h} $$
-$$ f^\prime_{backward}(x_i) = \frac{ f(x_{x}) - f(x_{i-1}) }{h} $$
-$$ f^\prime_{center}(x_i) = \frac{ f(x_{i+1}) - f(x_{i-1}) }{2h} $$
+$$ f^\prime*{forward}(x_i) = \frac{ f(x*{i+1}) - f(x*i) }{h} $$
+$$ f^\prime*{backward}(x*i) = \frac{ f(x*{x}) - f(x*{i-1}) }{h} $$
+$$ f^\prime*{center}(x*i) = \frac{ f(x*{i+1}) - f(x\_{i-1}) }{2h} $$
 
 It turns out the answer is the last one (called Center), but we can go one step further and prove that using the point before and after is the best using Taylor series!
 
 #### Determining the error using Forward, Backward, Center Numerical Differentiation
 
-We can actually prove that the center method has the least amount of error. 
+We can actually prove that the center method has the least amount of error.
 
-Let's Taylor expand \\( x_{i-1} \\) and \\(x_{i+1} \\). So we're using f(x_i) as our base point and estimating \\( x_{i-1} \\) and \\(x_{i+1} \\).
+Let's Taylor expand \\( x*{i-1} \\) and \\(x*{i+1} \\). So we're using f(x*i) as our base point and estimating \\( x*{i-1} \\) and \\(x\_{i+1} \\).
 
-$$ f(x_{i-1}) = f(x_{i}) - h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) - \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ... $$
-$$ f(x_{i+1}) = f(x_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ... $$
+$$ f(x*{i-1}) = f(x*{i}) - h f^\prime(x*i) + \frac{h^2}{2}f^{\prime\prime}(x_i) - \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ... $$
+$$ f(x*{i+1}) = f(x\_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ... $$
 
 With
 
-$$ h = x_{i+1} - x_i = x_i - x_{x-1} $$
+$$ h = x*{i+1} - x_i = x_i - x*{x-1} $$
 
-Now we can re-arrange some stuff from the \\( f(x_{x-1}) \\) equation to determine the error for the Forward Differentiation method:
+Now we can re-arrange some stuff from the \\( f(x\_{x-1}) \\) equation to determine the error for the Forward Differentiation method:
 
-$$ \begin{array}{llll} f^\prime_{forward}(x_i) 
-& = \frac{ f(x_{i+1}) - f(x_i) }{h} \\\ 
-& = \frac{ (f(x_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) - f(x_i)}{h} \\\ 
-& = f^\prime(x_i) + \frac{h}{2}f^{\prime\prime}(x_i) + \frac{h^2}{6}f^{\prime\prime\prime}(x_i) + ... \\\ 
-& \sim  f^\prime(x_i) + \mathcal{O}(h) \end{array} $$
+$$
+\begin{array}{llll} f^\prime_{forward}(x_i)
+& = \frac{ f(x_{i+1}) - f(x_i) }{h} \\\
+& = \frac{ (f(x_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) - f(x_i)}{h} \\\
+& = f^\prime(x_i) + \frac{h}{2}f^{\prime\prime}(x_i) + \frac{h^2}{6}f^{\prime\prime\prime}(x_i) + ... \\\
+& \sim  f^\prime(x_i) + \mathcal{O}(h) \end{array}
+$$
 
 Doing the same for Center we get:
 
-$$ \begin{array}{llll} f^\prime_{center}(x_i) 
-& = \frac{ f(x_{i+1}) - f(x_{i-1}) }{2h} \\\ 
-& = \frac{ (f(x_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) - (f(x_{i}) - h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) - \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) }{2h} \\\ 
-& = f^\prime(x_i) - \frac{h^2}{6}f^{\prime\prime\prime}(x_i) + ... \\\ 
-& \sim  f^\prime(x_i) + \mathcal{O}(h^2) \end{array} $$
-
+$$
+\begin{array}{llll} f^\prime_{center}(x_i)
+& = \frac{ f(x_{i+1}) - f(x_{i-1}) }{2h} \\\
+& = \frac{ (f(x_{i}) + h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) + \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) - (f(x_{i}) - h f^\prime(x_i) + \frac{h^2}{2}f^{\prime\prime}(x_i) - \frac{h^3}{6}f^{\prime\prime\prime}(x_i) + ...) }{2h} \\\
+& = f^\prime(x_i) - \frac{h^2}{6}f^{\prime\prime\prime}(x_i) + ... \\\
+& \sim  f^\prime(x_i) + \mathcal{O}(h^2) \end{array}
+$$
 
 <table>
     <tr>
@@ -108,9 +110,9 @@ $$ \begin{array}{llll} f^\prime_{center}(x_i)
     </tr>
 </table>
 
-The error can be a little confusing to understand, but it's saying that if we want 100x better resolution on forward or backward methods, we'd need to split our \\( h \\) into 100x smaller buckets. 
+The error can be a little confusing to understand, but it's saying that if we want 100x better resolution on forward or backward methods, we'd need to split our \\( h \\) into 100x smaller buckets.
 
-Whereas for the center method, if we want a 100x improvement, we only need to split our \\( h \\) buckets by 10. 10*10 = 100.
+Whereas for the center method, if we want a 100x improvement, we only need to split our \\( h \\) buckets by 10. 10\*10 = 100.
 
 Let's see this in practice!
 
@@ -130,7 +132,7 @@ Here I use Numerical Differentiation to plot the derivatives of the following eq
 $$ f_1(x) = sin(x) $$
 $$ f_2(x) = 5x -3 $$
 $$ f_3(x) = e^x $$
-$$ f_4(x) = cos(2x) + e^{-\frac{x^2}{2}} sin(10x) $$ 
+$$ f_4(x) = cos(2x) + e^{-\frac{x^2}{2}} sin(10x) $$
 
 [![diff_examples](https://raw.githubusercontent.com/c0nrad/csim/master/examples/diff_examples/diff_examples.png)](https://github.com/c0nrad/csim/blob/master/examples/diff_examples/diff_examples.png?raw=true)
 ([Image](https://github.com/c0nrad/csim/blob/master/examples/diff_modes/multiple_h.png) | [Code](https://github.com/c0nrad/csim/blob/master/examples/diff_examples/diff_examples.go))
@@ -139,7 +141,7 @@ $$ f_4(x) = cos(2x) + e^{-\frac{x^2}{2}} sin(10x) $$
 
 In my [electron orbitals simulator](https://blog.c0nrad.io/posts/hydrogen-pt1/) I had to calculate the Legendre Polynomials (using Rodrigues' Formula):
 
-$$ P_l(x) = \frac{1}{2^l l!} \left(\frac{d}{dx}\right)^l (x^2 - 1)^l $$ 
+$$ P_l(x) = \frac{1}{2^l l!} \left(\frac{d}{dx}\right)^l (x^2 - 1)^l $$
 
 Knowing that I'd have to calculate the derivative of this function was one of the reasons I decided to [check out GiNaCs](https://blog.c0nrad.io/posts/ginac-on-macos/) in the first place. (GiNaCs has a symbolic differentiator).
 
@@ -174,10 +176,10 @@ But with some plotting, we can verify it works!
 [![Legendre](https://github.com/c0nrad/csim/blob/master/examples/legendre/legendre.png?raw=true)](https://github.com/c0nrad/csim/blob/master/examples/legendre/legendre.png?raw=true)
 ( [Image](https://github.com/c0nrad/csim/blob/master/examples/legendre/legendre.png?raw=true) | [Code](https://github.com/c0nrad/csim/blob/master/examples/legendre/legendre.go) )
 
-How cool is that! 
+How cool is that!
 
 ### Conclusion
 
-Numeric differentiation ended up being way cooler than I thought it would be. 
+Numeric differentiation ended up being way cooler than I thought it would be.
 
-Up next is numeric integration! I had to build a numeric integrator for a previous game engine, I'm excited to see how wrong I was. 
+Up next is numeric integration! I had to build a numeric integrator for a previous game engine, I'm excited to see how wrong I was.

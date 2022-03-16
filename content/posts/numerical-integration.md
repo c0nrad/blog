@@ -1,8 +1,8 @@
 ---
-title: "Numerical Integration Pt. 1"
+title: "Numerical Integration"
 date: 2020-07-11T23:12:13-04:00
 draft: false
-tags: ["physics", "computational physics"]
+categories: ["physics", "computational physics"]
 ---
 
 Some exploration into numerical integration.
@@ -25,15 +25,15 @@ In this post we'll compare the most popular numerical integrators
 
 The above chart shows the error for four different functions, using four different integrators, across a number of sample points (N) from the original functions. It took me most of the day to make this image.
 
-The four functions are: 
+The four functions are:
 
-$$ f_{topleft} = \int_{-1}^{1} \frac{1}{1+x} dx $$
+$$ f*{topleft} = \int*{-1}^{1} \frac{1}{1+x} dx $$
 
-$$ f_{topright} = \int_{-10}^{10} 2 x^4 + 3 x^3 + 4 x^2 + 5 x + 6 dx $$ 
+$$ f*{topright} = \int*{-10}^{10} 2 x^4 + 3 x^3 + 4 x^2 + 5 x + 6 dx $$
 
-$$ f_{bottemleft} = \int_{0}^{1} sin(x^2) dx $$ 
+$$ f*{bottemleft} = \int*{0}^{1} sin(x^2) dx $$
 
-$$ f_{bottomright} = \int_{0}^{2} e^{-2x} dx $$ 
+$$ f*{bottomright} = \int*{0}^{2} e^{-2x} dx $$
 
 ### Integrators
 
@@ -49,17 +49,17 @@ A logical extension to the rectangle method. Sometimes the top of the rectangle'
 
 #### Simpson's Rule
 
-The next logical extension, instead of treating the top of the rectangles as linear, treat them as cubic. 
+The next logical extension, instead of treating the top of the rectangles as linear, treat them as cubic.
 
 #### Gauss-Legendre
 
-I am honestly blown away by how accurate this function is. 
+I am honestly blown away by how accurate this function is.
 
 I'm going to dedicate part two to just this algorithm.
 
 This model is different than the rest. The algorithm is used to determine the spacing of the different chunks along with weights for the sample points.
 
-## Offtopic: Function Interceptor 
+## Offtopic: Function Interceptor
 
 I also wanted to prove that none of the integrators were cheating by calling the base function more than the other integrators. (It turns out this was a little tricky with edge conditions, but the details are boring).
 

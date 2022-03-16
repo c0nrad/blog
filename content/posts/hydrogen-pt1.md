@@ -3,20 +3,20 @@ title: "Electron Wavefunctions for Hydrogen Part 1"
 date: 2020-05-28T10:22:30-04:00
 draft: false
 description: "Calculating the stationary states of an electron in a hydrogen atom"
-tags: ["quantum mechanics","simulation"]
+categories: ["quantum mechanics", "simulation", "physics"]
 ---
 
-The code/math behind calculating the electron wavefunctions for hydrogen. 
+The code/math behind calculating the electron wavefunctions for hydrogen.
 
 <!--more-->
 
 ## Background
 
-I never thought I would have so much fun programming in C++ again. I can't believe how much I miss operator overloading and templates. 
+I never thought I would have so much fun programming in C++ again. I can't believe how much I miss operator overloading and templates.
 
 Being able to write `ex c = a + b;` where a and b are custom types is so nice.
 
-The goal of my next project is creating an interactive display for the electron wavefunctions of hydrogen. 
+The goal of my next project is creating an interactive display for the electron wavefunctions of hydrogen.
 
 I decided to do this project using [GiNaC](/posts/ginac-on-macos), and the visualizations will be in three.js (webGL).
 
@@ -38,13 +38,13 @@ But, holy crap GiNaC is cool. I love that I can symbolically create expressions.
 
 To find the wavefunctions of hydrogen, you start at the same place you always start at... the Schrödinger Equation!
 
-$$ i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2m} \Delta^{2} \Psi + V \Psi $$ 
+$$ i \hbar \frac{\partial \Psi}{\partial t} = - \frac{\hbar^2}{2m} \Delta^{2} \Psi + V \Psi $$
 
-For all the examples I've been learning about so far, we've been using X,Y,Z as the coordinate system. But for hydrogen (and other realistic systems), it makes sense to move to a [spherical coordinate system](https://en.wikipedia.org/wiki/Spherical_coordinate_system). This is because most real world potentials are proportional to a radius around some origin. 
+For all the examples I've been learning about so far, we've been using X,Y,Z as the coordinate system. But for hydrogen (and other realistic systems), it makes sense to move to a [spherical coordinate system](https://en.wikipedia.org/wiki/Spherical_coordinate_system). This is because most real world potentials are proportional to a radius around some origin.
 
 Unfortunately the equation (time-independent Schrödinger Equation in spherical coordinates) gets a bit more complex:
 
-$$ - \frac{\hbar^2}{2m} [ \frac{1}{r^2}  \frac{ \partial }{\partial r} ( r^2 \frac{\partial \psi}{\partial r}) +   \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta} ( \sin{\theta} \frac{\partial \psi}{\partial \theta})    +     \frac{1}{r^2 \sin^2{\theta}} ( \frac{\partial^2 \psi}{\partial \phi^2}) ] + V \psi = E \psi $$
+$$ - \frac{\hbar^2}{2m} [ \frac{1}{r^2} \frac{ \partial }{\partial r} ( r^2 \frac{\partial \psi}{\partial r}) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta} ( \sin{\theta} \frac{\partial \psi}{\partial \theta}) + \frac{1}{r^2 \sin^2{\theta}} ( \frac{\partial^2 \psi}{\partial \phi^2}) ] + V \psi = E \psi $$
 
 ### Hydrogen Solution
 
@@ -54,26 +54,27 @@ $$ V(r) = -4 \frac{e^2}{4 \pi \epsilon_0 } \frac{1}{r} $$
 
 If you do all the math (and by 'do the math', I mean nod along in your text book while crying softly to yourself since you don't really understand what's going on), you'll eventually find that the solutions for a bound electron to hydrogen to be:
 
-$$ \psi_{nlm}(r, \theta, \phi) = \sqrt{ \left(\frac{2}{na}\right)^3  \frac{(n-l-1)!}{2n (n+l)!}} e^{-r/na} \left( \frac{2r}{na}\right)^{l} \left[L_{n-l-1}^{2l+1}(2r/na)\right] Y_l^m(\theta, \phi) $$
+$$ \psi*{nlm}(r, \theta, \phi) = \sqrt{ \left(\frac{2}{na}\right)^3 \frac{(n-l-1)!}{2n (n+l)!}} e^{-r/na} \left( \frac{2r}{na}\right)^{l} \left[L*{n-l-1}^{2l+1}(2r/na)\right] Y_l^m(\theta, \phi) $$
 
 Where:
-* \\( L_{q}^{p} \\) is the [Associated Laguerre Polynomial](https://en.wikipedia.org/wiki/Laguerre_polynomials), defined by:
+
+- \\( L\_{q}^{p} \\) is the [Associated Laguerre Polynomial](https://en.wikipedia.org/wiki/Laguerre_polynomials), defined by:
 
 $$ L_q^p(x) = \frac{x^{-p} e^x}{q!}\left(\frac{d}{dx}\right)^d (e^{-x}x^{p+q}) $$
 
-* \\( a \\) is the [Bohr Radius](https://en.wikipedia.org/wiki/Bohr_radius).
+- \\( a \\) is the [Bohr Radius](https://en.wikipedia.org/wiki/Bohr_radius).
 
-* \\( Y_l^m(\theta, \phi) \\) is the [spherical harmonics](https://en.wikipedia.org/wiki/Spherical_harmonics), defined by:
+- \\( Y_l^m(\theta, \phi) \\) is the [spherical harmonics](https://en.wikipedia.org/wiki/Spherical_harmonics), defined by:
 
-$$ Y_l^m(\theta, \phi) = \sqrt{ \frac{(2l+1)}{4 \pi} \frac{(l-m)!}{(l+m)!}} e^{i m \phi} * P^m_l(\cos{\theta}) $$
+$$ Y_l^m(\theta, \phi) = \sqrt{ \frac{(2l+1)}{4 \pi} \frac{(l-m)!}{(l+m)!}} e^{i m \phi} \* P^m_l(\cos{\theta}) $$
 
-* \\( P^m_l(x) \\) is the [associated Legendre Polynomials](https://en.wikipedia.org/wiki/Associated_Legendre_polynomials), defined by:
+- \\( P^m_l(x) \\) is the [associated Legendre Polynomials](https://en.wikipedia.org/wiki/Associated_Legendre_polynomials), defined by:
 
-$$ P^m_l(x) = (-1)^m (1-x^2)^{m/2} \left( \frac{d}{dx} \right)^m P_l(x) $$ 
+$$ P^m_l(x) = (-1)^m (1-x^2)^{m/2} \left( \frac{d}{dx} \right)^m P_l(x) $$
 
-* \\( P_l(x) \\) is the Legendre Polynomial, generated by the Rodrigues Formula:
+- \\( P_l(x) \\) is the Legendre Polynomial, generated by the Rodrigues Formula:
 
-$$ P_l(x) = \frac{1}{2^l l!} \left(\frac{d}{dx}\right)^l (x^2 - 1)^l $$ 
+$$ P_l(x) = \frac{1}{2^l l!} \left(\frac{d}{dx}\right)^l (x^2 - 1)^l $$
 
 <table>
 <tr><th>n</th><th>l</th><th>m</th><th> $$  \psi_{nlm}(r, \theta, \phi) $$ </th></tr>
@@ -89,9 +90,9 @@ $$ P_l(x) = \frac{1}{2^l l!} \left(\frac{d}{dx}\right)^l (x^2 - 1)^l $$
 <tr><td>3</td><td>2</td><td>2</td><td> $$ -\frac{2}{3645} \frac{ \cos(\theta)^{2} \sqrt{2430} \exp(-\frac{1}{3} \frac{r}{a}+{(2 i)} \phi) r^{2} \sqrt{\frac{5}{96}} \sqrt{\frac{1}{a^{3}}}}{ \sqrt{\pi} a^{2}}+\frac{2}{3645} \frac{ \sqrt{2430} \exp(-\frac{1}{3} \frac{r}{a}+{(2 i)} \phi) r^{2} \sqrt{\frac{5}{96}} \sqrt{\frac{1}{a^{3}}}}{ \sqrt{\pi} a^{2}} $$ </td></tr>
 </table>
 
-### Building Functions by Differentiation 
+### Building Functions by Differentiation
 
-What's super cool about a number of those functions is that they're built using an arbitrary differentiation. \\( \left(\frac{d}{dx}\right)^l \\). 
+What's super cool about a number of those functions is that they're built using an arbitrary differentiation. \\( \left(\frac{d}{dx}\right)^l \\).
 
 This is the real reason I chose to use GiNaCs, so I could perform these derivatives symbolically.
 
@@ -105,15 +106,15 @@ GiNaC::ex RodriguesFormula(const GiNaC::symbol &x, int l)
 
 ### Legendre Polynomials
 
-The [Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials) (and everything built up from it) are cool because they are orthogonal. 
+The [Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials) (and everything built up from it) are cool because they are orthogonal.
 
-This means they can be used to form a basis, and when combining these functions together, they don't interfere with each other. 
+This means they can be used to form a basis, and when combining these functions together, they don't interfere with each other.
 
 This is particularly useful when constructing fourier series, since you can use a set of orthogonal vectors to describe any function. (Commonly Cos / Sin are used, which are also orthogonal. If you look at a chart of Cos/Sin from -pi to pi, and multiply them together and add up the areas, you can convince yourself they equal zero).
 
 ### What are n, l, and m?
 
-The easiest one to describe is "n", the `principal quantum number`. This is the energy state of the wave function. Any wave function with a similar n has the same energy. 
+The easiest one to describe is "n", the `principal quantum number`. This is the energy state of the wave function. Any wave function with a similar n has the same energy.
 
 The higher the n, the further away the electron is from the nucleus (the proton).
 
