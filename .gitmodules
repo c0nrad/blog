@@ -2,9 +2,6 @@
 	path = public
 	url = git@github.com:c0nrad/c0nrad.github.io.git
 	branch = master
-[submodule "themes/anubis"]
-	path = themes/anubis
-	url = https://github.com/mitrichius/hugo-theme-anubis.git
 [submodule "themes/Hugo-Octopress"]
 	path = themes/Hugo-Octopress
 	url = https://github.com/parsiya/Hugo-Octopress.git

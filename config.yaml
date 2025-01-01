@@ -2,7 +2,10 @@ baseURL: "https://blog.c0nrad.io/"
 languageCode: en-us
 title: c0nrad's c0rner
 theme: Hugo-Octopress
-paginate: 10
+
+pagination:
+  pagerSize: 10
+
 
 menu:
   main:
@@ -16,9 +19,15 @@ menu:
       URL: "https://github.com/c0nrad/"
       weight: -9
     - Name: Twitter
-      URL: "https://twitter.com/xc0nradx"
+      URL: "https://twitter.com/c0nrad_jr"
       weight: -8
+    - Name: Other Blog
+      URL: "https://c0nradsc0rner.com"
+      weight: -7
   sidebar:
+    - Name: CTFs
+      URL: /categories/ctfs
+      weight: 10
     - Name: physics
       URL: /categories/physics
       weight: 10
@@ -46,12 +55,7 @@ params:
   sidebarHeader: Who am I?
   sidebarText: |-
     <img src="/me.png" style="width: 100%"> 
-    I am Stuart. In a previous life I was a programmer, electrical engineer, and a security engineer. Now I spend my free time tinkering with physics.
-    </br></br>
-    My goal is to understand why the universe exists. I have a lot of learning to do.
-    <br/><br/>
-    I write about physics, life, and learning.
-    </br>
+    CTFs (<a href="https://www.youtube.com/@SloppyJoePirates/videos">Sloppy Joe Pirates</a>). Founder (<a href="https://csper.io">csper.io</a>). Enjoyer of security/software/physics.
 
   # Enable links in the side bar. They are under menu.sidebar.
   sidebarMenuEnabled: true
@@ -60,26 +64,19 @@ params:
 
   generateTaxonomyList: true
 
-  twitter: "https://twitter.com/xc0nradx/"
-  github: "https://github.com/c0nrad/"
-  linkedin: "https://www.linkedin.com/in/c0nrad"
   rss: true
 
   defaultKeywords:
     - Stuart Larsen
     - c0nrad
     - physics
+    - ctfs
 
   tableOfContents: true
 
   twitterCardEnabled: true
   twitterCardDomain: blog.c0nrad.io
   twitterCardAuthor: CryptoGangsta
-
-  analytics:
-    piwik:
-      URL: c0nrad.matomo.cloud
-      ID: 1
 
 markup:
   defaultMarkdownHandler: goldmark
