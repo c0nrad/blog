@@ -71,16 +71,16 @@ I again used OpenSCAD to make a little holder for the circuit ([code](https://gi
 
 I used PCBWay for the PCB, it was very simple, I just went with all the defaults and it arrived 5 days later. You have to buy 5 and it ended up costing $60 in total, but overall very happy with the results.
 
-I just finished it today, and haven't used it for anything. 
+I just finished it today, so haven't used it for real, but it looks great.
 
 ## Future
 
-I'm not too sure if I'll do another iteration, but if I do, I'll probably do the following.
+I'm not too sure if I'll do another iteration, but if I do, I'll probably do some combination of the following.
 
 * Size
     * The Pico takes up a lot of room. But you can actually extract the Pico circuitry and place it directly on your own board. I think the total board size could be just the buttons and the screen.
 * On/Off Switch
-    * I think it'd be cool if the on/off switch was hanging off the side.
+    * I think it'd be cool if the on/off switch was hanging off the side, not facing frontwards.
 * Charge Controller
     * LiPo batteries are rechargable, so it'd be cool if I could charge the device via USB.
 * eInk display
@@ -94,4 +94,4 @@ I'm not too sure if I'll do another iteration, but if I do, I'll probably do the
 
 I'm very happy with the results of the project! I always use the device now when I play SWU. I also feel very powerful now that I can order my own PCB circuits and do my own 3d-Print modeling for whatever my heart desires.
 
-Off to the next project!
+Off to the next project! (Can we calculate which SWU cards are above curve? :evil-grin:)
